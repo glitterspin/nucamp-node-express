@@ -1,0 +1,2 @@
+notes first class
+fireship youtube channel, has things like "100 seconds of js closures and beyond"
