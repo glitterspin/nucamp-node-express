@@ -19,7 +19,7 @@ app.get('/campsites', (req, res) => {
 });
 
 app.post('/campsites', (req, res) => {
-    app.post(`Will add the campsite: ${req.body.name} with description: ${req.body.description}`);
+    res.end(`Will add the campsite: ${req.body.name} with description: ${req.body.description}`);
 });
 
 app.put('/campsites', (req, res)=> {
@@ -42,7 +42,8 @@ app.post('/campsites/:campsiteId', (req, res) => {
 
 app.put('/campsites/:campsiteId', (req, res) => {
     res.write(`Updating the campsite: ${req.params.campsiteId}\n`);
-    res.end('Will update the campsite: ${req.body.name} with description: ${req.body.description}');
+    res.end(`Will update the campsite: ${req.body.name} 
+        with description: ${req.body.description}`);
 });
 
 app.delete('/campsites/:campsiteId', (req, res) => {
@@ -66,12 +67,7 @@ app.listen(port, hostname, () => {
 app.use(express.static(__dirname+'/public'));
 
 app.use((req, res) => {
-    console.log(req.headers);
     res.statusCode = 200;
     res.setHeader('Content-type', 'text/html');
     res.end('<html><body><h1>This is an Express Server</h1></body></html>');
 });
-
-app.listen(port, hostname, () => {
-    console.log(`Server runnin at http://${hostname}:${port}/`);
-})
